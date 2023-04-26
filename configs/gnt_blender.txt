@@ -1,6 +1,6 @@
 ### INPUT
 expname = gnt_blender
-rootdir = ./
+rootdir = ../../dataset/
 render_stride = 2
 distributed = False
 
@@ -11,7 +11,7 @@ eval_dataset = nerf_synthetic
 eval_scenes = lego
 
 ### TRAINING
-N_rand = 2048
+N_rand = 1024
 lrate_feature = 0.001
 lrate_gnt = 0.0005
 lrate_decay_factor = 0.5

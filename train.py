@@ -315,5 +315,6 @@ if __name__ == "__main__":
         torch.distributed.init_process_group(backend="nccl", init_method="env://")
         args.local_rank = int(os.environ.get("LOCAL_RANK"))
         torch.cuda.set_device(args.local_rank)
+        print(args.local_rank)
 
     train(args)
