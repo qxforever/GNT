@@ -1,6 +1,6 @@
 ### INPUT
 expname = gnt_full
-rootdir = ./
+rootdir = ../../dataset
 render_stride = 2
 distributed = False
 

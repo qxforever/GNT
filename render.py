@@ -87,7 +87,7 @@ def render(args):
                 tmp_ray_sampler,
                 projector,
                 render_stride=args.render_stride,
-                prefix="val/" if args.run_val else "train/",
+                prefix="val/" if args.run_val else "train160/",
                 out_folder=out_folder,
                 ret_alpha=args.N_importance > 0,
                 single_net=args.single_net,

@@ -22,6 +22,7 @@ def config_parser():
         metavar="N",
         help="number of data loading workers (default: 8)",
     )
+    parser.add_argument("--gpus", type=int, default=1, help="Number of gpus, using DataParallel if greater than 1")
 
     ########## dataset options ##########
     ## train and eval dataset

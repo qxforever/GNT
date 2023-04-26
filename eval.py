@@ -85,6 +85,8 @@ def eval(args):
     # create projector
     projector = Projector(device=device)
 
+    print(f'Dataset length = {len(dataset)}')
+    
     indx = 0
     psnr_scores = []
     lpips_scores = []
@@ -106,7 +108,7 @@ def eval(args):
                 projector,
                 gt_img,
                 render_stride=args.render_stride,
-                prefix="val/" if args.run_val else "train/",
+                prefix="val" + data['rgb_path'][0].split('/')[-1][:-3] + "/" if args.run_val else "train/",
                 out_folder=out_folder,
                 ret_alpha=args.N_importance > 0,
                 single_net=args.single_net,
@@ -185,7 +187,8 @@ def log_view(
         depth_fine = None
 
     rgb_coarse = rgb_coarse.permute(1, 2, 0).detach().cpu().numpy()
-    filename = os.path.join(out_folder, prefix[:-1] + "_{:03d}_coarse.png".format(global_step))
+    filename = os.path.join(out_folder, prefix[:-1] + f"_{global_step}_coarse" + str() + ".png")
+    print(f'prefix = {prefix}')
     imageio.imwrite(filename, rgb_coarse)
 
     if depth_coarse is not None:
